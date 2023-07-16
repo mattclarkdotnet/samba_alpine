@@ -1,6 +1,6 @@
 # Background
 
-These are instructions for using Alpine Linux to run an SMB server from a Raspberry Pi.  You may know Alpine as a minimal Linux distro for containers, but it's also rather good for Raspberry Pi.  The advantage of Alpine is that is can run entirely from memory, causing no wear on any attached storage.  It is also very reproducible, as packages are installed to the ram drive on each boot, so it is very hard to mess up the config.
+These are instructions for using Alpine Linux to run an SMB server from a Raspberry Pi.  You may know Alpine as a minimal Linux distro for containers, but it's also rather good for Raspberry Pi.  The advantage of Alpine is that it can run entirely from memory, causing no wear on any attached storage.  It is also very reproducible, as packages are installed to the ram drive on each boot, so it is very hard to mess up the config.
 
 I created this to make a reliable low power music server for my Sonos system at home.  The Samba settings are minimal and insecure, as Sonos requires crazy legacy SMB stuff.
 
