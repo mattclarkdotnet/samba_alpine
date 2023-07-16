@@ -10,7 +10,7 @@ rc-update add samba default
 
 
 echo media | adduser media --no-create-home --shell=/bin/false -u 1000 -D
-(echo "media"; echo "media") | smbpasswd -s media
+(echo "media"; echo "$MEDIAPASSWORD") | smbpasswd -s media
 lbu add /var/lib/samba/private/*.tdb
 
 mkfs.ext4 /dev/mmcblk0p2
