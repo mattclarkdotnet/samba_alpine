@@ -6,6 +6,8 @@ This example uses serial terminal access, not ssh.  To enable ssh you would chan
 
 The Samba settings are minimal and insecure, as these are used by me to run a media server for my Sonos audio players, which require crazy SMB settings!
 
+Once you complete the steps, the data partitin wil be available at \\media.local\data, with username "media" and whatever password you set in stage 4 of setup.
+
 ## Required hardware
 
 * Raspberry Pi 3B or later
@@ -17,8 +19,8 @@ The Samba settings are minimal and insecure, as these are used by me to run a me
 It's a four step process to get a running system:
 1. Download the Alpine image for your Pi
 1. The `bootmedia.sh` script splits an SD card into two partitions: a 1GB boot partition is created and the rest of the card is used for data storage.  The Alpine Linux image is then copied to the boot partition, followed by the anserfile.sh and appsetup.sh scripts.
-1. Move the SD card to the Pi, power it up, and set up the base system using the answerfile.  If you want wifi this is where you will set that up too.
-1. Add packages and configure Samba.  
+1. Move the SD card to the Pi, power it up, and set up the base system using the answerfile.  If you want wifi this is where you will set that up too.  See https://docs.alpinelinux.org/user-handbook/0.1a/Installing/setup_alpine.html
+1. Add packages, format the data partition and configure Samba.
 
 # Download a suitable Alpine image for your Raspberry Pi
 
@@ -45,10 +47,9 @@ Connect a USB UART to the Pi, and use minicom to connect to it. The actual USB s
 minicom -b 115200 -D /dev/tty.usbserial-AG0JUPBU
 ```
 
-Boot the RPi, and log in as root with no password.  If you want wifi you will need to run "setup-interfaces" first to configure the wlan SSID and passphrase.  You will also need to create a root password interactively during the setup process.  
+Boot the RPi, and log in as root with no password.  You will need to create a root password interactively during the setup process.  Wired ethernet is set up using DHCP.  Wifi is not enabled by default, see https://docs.alpinelinux.org/user-handbook/0.1a/Installing/setup_alpine.html
 
 ``` sh
-#setup-interfaces
 setup-alpine -f /media/mmcblk0p1/answerfile.sh
 lbu commit
 ```
