@@ -11,7 +11,7 @@ q
 diskutil mountDisk $SDCARD
 echo "Copying boot files"
 tar xf $ALPINEIMG -C $VOL
-echo "modules=loop,squashfs,sd-mod,usb-storage console=serial0,115200" > $VOL/cmdline.txt
+echo "modules=loop,squashfs,sd-mod,usb-storage console=ttyS0,115200" > $VOL/cmdline.txt
 echo "enable_uart=1" > $VOL/usercfg.txt
 cp ./answerfile.sh $VOL/answerfile.sh
 cp ./appsetup.sh $VOL/appsetup.sh
